@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>합격노트 | 자소서 첨삭 & 면접 준비</title>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d1b2a;
+    --paper: #f5f7fa;
+    --accent: #1428a0;   /* 삼성 블루 */
+    --accent2: #2196f3;  /* 밝은 블루 */
+    --accent-light: #e8edf9;
+    --muted: #64748b;
+    --border: #dde3ed;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans KR', 'Pretendard', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  header {
+    padding: 1.2rem 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,.95);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 900;
+    font-size: 1.35rem;
+    letter-spacing: -.04em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--accent); }
+
+  nav a {
+    font-size: .85rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    margin-left: 2rem;
+    transition: color .2s;
+  }
+  nav a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: #fff !important;
+    padding: .45rem 1.1rem;
+    border-radius: 6px;
+    font-weight: 700 !important;
+    transition: background .2s !important;
+  }
+  .nav-cta:hover { background: #0d1e7a !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 0;
+    padding: 0 5vw;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -8vw;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55vw;
+    height: 55vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(20,40,160,.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-text { padding: 4rem 0; }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+    padding: .3rem .75rem;
+    margin-bottom: 1.8rem;
+    animation: fadeUp .8s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.22;
+    letter-spacing: -.04em;
+    margin-bottom: 1.4rem;
+    animation: fadeUp .8s .1s ease both;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+    position: relative;
+  }
+
+  .hero h1 em::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 2px;
+    width: 100%;
+    height: 3px;
+    background: var(--accent2);
+    opacity: .5;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.9;
+    max-width: 440px;
+    margin-bottom: 2.4rem;
+    font-weight: 300;
+    animation: fadeUp .8s .2s ease both;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp .8s .3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    padding: .85rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 8px;
+    transition: transform .2s, background .2s, box-shadow .2s;
+    box-shadow: 0 4px 16px rgba(20,40,160,.25);
+    letter-spacing: -.01em;
+  }
+
+  .btn-primary:hover {
+    background: #0d1e7a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(20,40,160,.35);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    padding: .85rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1.5px solid var(--border);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 8px;
+    transition: background .2s, color .2s, border-color .2s;
+    letter-spacing: -.01em;
+  }
+
+  .btn-secondary:hover {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* hero visual */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s .4s ease both;
+  }
+
+  .paper-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem 2.2rem;
+    width: 340px;
+    box-shadow: 0 20px 60px rgba(20,40,160,.1);
+    position: relative;
+  }
+
+  .paper-card::before {
+    content: '자기소개서';
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--accent);
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    padding: .2rem .6rem;
+    border-radius: 4px;
+  }
+
+  .paper-line {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .paper-line::after {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--accent2);
+    animation: lineSlide 2.5s 1s ease-in-out infinite;
+  }
+
+  .paper-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  .text-mock {
+    height: 10px;
+    background: var(--border);
+    border-radius: 2px;
+  }
+
+  .text-mock.w80 { width: 80%; }
+  .text-mock.w60 { width: 60%; }
+  .text-mock.w90 { width: 90%; }
+  .text-mock.w70 { width: 70%; }
+
+  .correction-tag {
+    position: absolute;
+    background: #eef2ff;
+    border: 1px solid #c7d2fe;
+    border-radius: 6px;
+    font-size: .72rem;
+    padding: .2rem .5rem;
+    color: var(--accent);
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(20,40,160,.1);
+  }
+
+  .tag1 { top: 70px; right: -30px; transform: rotate(3deg); }
+  .tag2 { bottom: 55px; right: -20px; transform: rotate(-2deg); }
+
+  .score-badge {
+    position: absolute;
+    bottom: -18px;
+    left: 30px;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: .85rem;
+    font-weight: 700;
+    padding: .4rem 1rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(20,40,160,.3);
+  }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 6rem 5vw; }
+
+  .section-label {
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: .8rem;
+  }
+
+  .section-title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: -.04em;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 520px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 1.5px;
+    background: var(--border);
+  }
+
+  /* ── SERVICES ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .service-card {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    position: relative;
+    transition: transform .25s, box-shadow .25s;
+    cursor: default;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(20,40,160,.12);
+    z-index: 2;
+    border-color: var(--accent);
+  }
+
+  .service-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--accent);
+    opacity: .15;
+    line-height: 1;
+    margin-bottom: .8rem;
+  }
+
+  .service-card h3 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: .8rem;
+    letter-spacing: -.03em;
+  }
+
+  .service-card p {
+    font-size: .9rem;
+    color: var(--muted);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .service-price {
+    display: inline-block;
+    margin-top: 1.4rem;
+    font-size: .85rem;
+    font-weight: 700;
+    color: var(--accent);
+    border-top: 1.5px solid var(--accent);
+    padding-top: .5rem;
+    letter-spacing: .02em;
+  }
+
+  /* ── PROCESS ── */
+  .process-section { background: var(--accent); color: #fff; }
+
+  .process-section .section-label { color: rgba(255,255,255,.65); }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .step {
+    padding: 2rem 1.8rem;
+    background: rgba(255,255,255,.1);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.15);
+  }
+
+  .step:last-child { border-right: none; }
+
+  .step-num {
+    font-size: .8rem;
+    color: rgba(255,255,255,.7);
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    letter-spacing: .08em;
+  }
+
+  .step-num::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,.2);
+  }
+
+  .step h3 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: .7rem;
+    letter-spacing: -.03em;
+  }
+
+  .step p {
+    font-size: .85rem;
+    color: rgba(255,255,255,.65);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .testimonial {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    transition: box-shadow .2s;
+  }
+
+  .testimonial:hover {
+    box-shadow: 0 8px 30px rgba(20,40,160,.08);
+  }
+
+  .testimonial::before {
+    content: '"';
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 4rem;
+    color: var(--accent);
+    opacity: .2;
+    line-height: .8;
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+  }
+
+  .testimonial p {
+    font-size: .9rem;
+    line-height: 1.9;
+    color: #444;
+    margin-top: 1.5rem;
+    font-weight: 300;
+  }
+
+  .testimonial-meta {
+    margin-top: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+  }
+
+  .meta-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: .85rem;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+
+  .meta-info strong {
+    display: block;
+    font-size: .85rem;
+    font-weight: 700;
+  }
+
+  .meta-info span {
+    font-size: .75rem;
+    color: var(--muted);
+  }
+
+  .stars {
+    margin-left: auto;
+    color: var(--accent2);
+    font-size: .9rem;
+    letter-spacing: .05em;
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    background: var(--accent);
+    color: #fff;
+    text-align: center;
+  }
+
+  .cta-section .section-label {
+    color: rgba(255,255,255,.6);
+  }
+
+  .cta-section .section-title { color: #fff; }
+
+  .cta-section .section-sub {
+    color: rgba(255,255,255,.75);
+    margin: 0 auto 2.5rem;
+  }
+
+  .btn-white {
+    background: #fff;
+    color: var(--accent);
+    padding: .9rem 2.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 8px;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 4px 20px rgba(0,0,0,.15);
+    letter-spacing: -.01em;
+  }
+
+  .btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0,0,0,.2);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 3rem 5vw;
+    border-top: 1.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer .logo { font-size: 1.1rem; }
+
+  footer p {
+    font-size: .8rem;
+    color: var(--muted);
+  }
+
+  footer nav a {
+    font-size: .8rem;
+    margin-left: 1.5rem;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes lineSlide {
+    0%   { left: -100%; }
+    50%  { left: 100%; }
+    100% { left: 100%; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; padding: 3rem 5vw; }
+    .hero-visual { display: none; }
+    nav a:not(.nav-cta) { display: none; }
+    .step { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">합격<span>노트</span></a>
+  <nav>
+    <a href="#services">서비스</a>
+    <a href="#process">진행방식</a>
+    <a href="#reviews">후기</a>
+    <a href="#contact" class="nav-cta">상담 신청</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">✦ 취준생 맞춤 서비스</div>
+    <h1>당신의 자소서,<br><em>합격으로</em><br>바꿔드립니다</h1>
+    <p>현직 전문가가 직접 첨삭합니다.<br>비싼 컨설팅 회사 말고, 진짜 실력으로 — 합리적인 가격에.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">무료 상담 신청하기</a>
+      <a href="#services" class="btn-secondary">서비스 보기</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="paper-card">
+      <div class="paper-text-block" style="margin-bottom: 1.5rem;">
+        <div class="text-mock w90"></div>
+        <div class="text-mock w80"></div>
+        <div class="text-mock w60"></div>
+      </div>
+      <div class="paper-line"></div>
+      <div class="paper-text-block">
+        <div class="text-mock w70"></div>
+        <div class="text-mock w90"></div>
+        <div class="text-mock w80"></div>
+        <div class="text-mock w60"></div>
+      </div>
+      <div class="correction-tag tag1">✏️ 구체적 사례 추가</div>
+      <div class="correction-tag tag2">✂️ 문장 간결하게</div>
+      <div class="score-badge">합격 가능성 ↑ 84%</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">서비스</div>
+  <div class="section-title">어떤 도움이<br>필요하신가요?</div>
+  <p class="section-sub">자소서 한 줄부터 최종 면접까지, 합격에 필요한 것을 골라 신청하세요.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3>자기소개서 첨삭</h3>
+      <p>문장 구조, 내용의 설득력, 직무 적합성까지 꼼꼼하게 피드백합니다. 기업별 맞춤 수정 의견을 제공합니다.</p>
+      <span class="service-price">1건 15,000원~</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3>면접 질문 대비</h3>
+      <p>지원 기업·직무 분석을 통한 예상 질문 리스트와 모범 답변 전략을 제공합니다.</p>
+      <span class="service-price">1회 20,000원~</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <h3>모의 면접 (1:1)</h3>
+      <p>실전처럼 진행하는 화상 모의면접. 태도·답변·표정까지 상세한 피드백을 받으세요.</p>
+      <span class="service-price">1회 35,000원~</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <h3>패키지 (자소서+면접)</h3>
+      <p>자소서 첨삭부터 면접 준비까지 한 번에. 가장 경제적으로 합격을 준비하는 방법.</p>
+      <span class="service-price">패키지 45,000원~</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROCESS -->
+<section id="process" class="process-section">
+  <div class="section-label">진행 방식</div>
+  <div class="section-title" style="color: var(--paper);">간단하고 빠르게,<br>결과는 확실하게</div>
+
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num">STEP 01</div>
+      <h3>상담 신청</h3>
+      <p>카카오톡 또는 이메일로 간단히 신청합니다. 지원 기업, 직무, 현재 상황을 알려주세요.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">STEP 02</div>
+      <h3>자료 전달</h3>
+      <p>자소서 파일, 채용 공고를 공유해 주세요. 기타 희망사항도 함께 알려주시면 됩니다.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">STEP 03</div>
+      <h3>첨삭 & 피드백</h3>
+      <p>48시간 이내 상세한 첨삭 결과를 전달합니다. 질문 사항은 언제든 답변해 드립니다.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">STEP 04</div>
+      <h3>최종 완성</h3>
+      <p>피드백을 반영한 수정본 검토까지 포함됩니다. 합격까지 함께 합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="reviews">
+  <div class="section-label">합격 후기</div>
+  <div class="section-title">실제 합격자들의<br>이야기</div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <p>서류에서 계속 떨어졌는데, 첨삭 후 처음으로 서류를 통과했어요. 제 경험을 어떻게 써야 하는지 정확히 짚어줘서 너무 좋았습니다.</p>
+      <div class="testimonial-meta">
+        <div class="meta-avatar">김</div>
+        <div class="meta-info">
+          <strong>김○○님</strong>
+          <span>대기업 영업관리직 합격</span>
+        </div>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <p>면접 질문 리스트가 정말 도움이 됐어요. 실제 면접에서 예상했던 질문이 3개나 나왔습니다. 저렴한 가격에 이 퀄리티라니 추천하지 않을 수 없어요.</p>
+      <div class="testimonial-meta">
+        <div class="meta-avatar">이</div>
+        <div class="meta-info">
+          <strong>이○○님</strong>
+          <span>공기업 최종 합격</span>
+        </div>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <p>혼자 쓴 자소서랑 첨삭 후 버전이 완전히 달랐어요. 제 이야기인데 훨씬 설득력 있어졌습니다. 패키지로 신청한 게 정말 잘한 선택이었어요.</p>
+      <div class="testimonial-meta">
+        <div class="meta-avatar">박</div>
+        <div class="meta-info">
+          <strong>박○○님</strong>
+          <span>중견기업 인사팀 합격</span>
+        </div>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section id="contact" class="cta-section">
+  <div class="section-label">상담 신청</div>
+  <div class="section-title">오늘 바로 시작하세요</div>
+  <p class="section-sub">첫 상담은 무료입니다. 현재 상황을 알려주시면 맞는 서비스를 안내해 드릴게요.</p>
+  <a href="https://open.kakao.com/o/example" class="btn-white">카카오톡으로 상담하기 →</a>
+  <div style="margin-top: 1.2rem; font-size: .85rem; color: rgba(255,255,255,.6);">
+    또는 이메일: <strong style="color: #fff;">help@hapgyeok.kr</strong>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="logo">합격<span>노트</span></a>
+  <p>© 2025 합격노트. 취준생과 함께 성장합니다.</p>
+  <nav>
+    <a href="#services">서비스</a>
+    <a href="#process">진행방식</a>
+    <a href="#reviews">후기</a>
+  </nav>
+</footer>
+
+</body>
+</html>
